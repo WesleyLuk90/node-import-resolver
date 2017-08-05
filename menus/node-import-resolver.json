@@ -1,0 +1,18 @@
+{
+    "context-menu": {
+        "atom-text-editor": [{
+            "label": "Import module",
+            "command": "node-import-resolver:import"
+        }]
+    },
+    "menu": [{
+        "label": "Packages",
+        "submenu": [{
+            "label": "node-import-resolver",
+            "submenu": [{
+                "label": "Import",
+                "command": "node-import-resolver:import"
+            }]
+        }]
+    }]
+}

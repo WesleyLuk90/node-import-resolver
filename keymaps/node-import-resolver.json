@@ -1,0 +1,5 @@
+{
+    "atom-workspace": {
+        "ctrl-q": "node-import-resolver:import"
+    }
+}
