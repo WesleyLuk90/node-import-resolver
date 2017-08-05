@@ -6,7 +6,9 @@ env:
     node: true
     jasmine: true
     atomtest: true
+    es6: true
 globals:
     atom: true
 rules:
     no-console: [0]
+    semi: [2]
