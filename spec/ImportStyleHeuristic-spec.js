@@ -27,6 +27,7 @@ export function b(){}`, 'import');
 \texport function b(){}`, 'import');
 
     expectStyle(`let a = require('a');`, 'require');
+    expectStyle(`require('a');`, 'require');
     expectStyle(`var a = require('../../some/strange/pa$$th.abc');`, 'require');
     expectStyle(`const a_234$ = require('a');`, 'require');
     expectStyle(`const a = require('a')`, 'require');
