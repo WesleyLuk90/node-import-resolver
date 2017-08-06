@@ -12,6 +12,7 @@ describe('ConfigurationLoader', () => {
                 expect(config instanceof Configuration).toBe(true);
                 expect(config.getImportStyle()).toBe('require');
                 expect(config.getIgnoredFolders()).toEqual(['node_modules', 'spec']);
+                expect(config.getRootFolder()).toEqual(path.join(__dirname, './'));
             }));
     });
 });

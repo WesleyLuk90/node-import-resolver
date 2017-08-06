@@ -68,4 +68,15 @@ describe('ImportScanner', () => {
             this.containsPath('./nested/import1', true);
         });
     });
+
+    it(`it should start at the configured root folders`, () => {
+        const importScanner = ImportScanner.create(folder, 'Import1', onProgress, Configuration.createDefault().setRootFolder(path.join(__dirname, 'test-project/nested')));
+        waitsForPromise(() => importScanner.start(onProgress, onComplete)
+            .then(onComplete));
+
+        runs(() => {
+            this.containsPath('./nested/import1');
+            this.containsPath('./import1', true);
+        });
+    });
 });
