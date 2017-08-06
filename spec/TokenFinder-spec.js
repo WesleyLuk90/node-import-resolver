@@ -12,6 +12,8 @@ describe('TokenFinder', () => {
             }));
     });
 
+    afterEach(() => editor.destroy());
+
     it('should find no tokens', () => {
         const finder = new TokenFinder(editor);
         expect(finder.getToken()).toEqual(null);

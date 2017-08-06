@@ -34,6 +34,7 @@ describe('ImportScanner', () => {
             expect(onProgress.calls.length).toBe(2);
             this.containsPath(path.join(__dirname, 'test-project/import1.js'));
             this.containsPath(path.join(__dirname, 'test-project/nested/import1.js'));
+            expect(onProgress.calls[1].args).toEqual(onComplete.calls[0].args);
         });
     });
 
