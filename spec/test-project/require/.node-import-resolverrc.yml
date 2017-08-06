@@ -1,1 +1,4 @@
 importStyle: 'require'
+ignoredFolders:
+    - node_modules
+    - spec

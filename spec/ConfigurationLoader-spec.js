@@ -11,6 +11,7 @@ describe('ConfigurationLoader', () => {
             .then((config) => {
                 expect(config instanceof Configuration).toBe(true);
                 expect(config.getImportStyle()).toBe('require');
+                expect(config.getIgnoredFolders()).toEqual(['node_modules', 'spec']);
             }));
     });
 });
