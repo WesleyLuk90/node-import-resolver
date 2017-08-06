@@ -7,7 +7,7 @@
     "activationCommands": {
         "atom-workspace": "node-import-resolver:import"
     },
-    "repository": "https://github.com/atom/node-import-resolver",
+    "repository": "https://github.com/WesleyLuk90/node-import-resolver/",
     "license": "MIT",
     "engines": {
         "atom": ">=1.0.0 <2.0.0"
