@@ -1,7 +1,7 @@
 {
   "name": "node-import-resolver",
   "main": "./lib/NodeImportResolver",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Imports a require or import style file from the local project or node modules",
   "keywords": [],
   "activationCommands": {
