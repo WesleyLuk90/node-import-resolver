@@ -3,7 +3,7 @@
 import path from 'path';
 import ImportScanner from '../lib/ImportScanner';
 
-const folder = path.join(__dirname, 'test-project');
+const folder = path.join(__dirname, 'test-project/some-source.js');
 
 describe('ImportScanner', () => {
     let onComplete;
@@ -14,9 +14,9 @@ describe('ImportScanner', () => {
         onProgress = jasmine.createSpy('onProgress');
 
         this.containsPath = (path) => {
-            const matches = onProgress.calls.filter(c => c.args[0].indexOf(path) > -1);
+            const matches = onProgress.calls.filter(c => c.args[0].some(i => i.getRelativePath() === path));
             if (matches.length === 0) {
-                throw new Error(`Expected calls to conain path ${path} but actual calls were ${JSON.stringify(onProgress.calls, null, 4)}`);
+                throw new Error(`Expected calls to conain path ${path} but actual calls were ${JSON.stringify(onProgress.calls.map(c => c.args[0]), null, 4)}`);
             }
         };
     });
@@ -31,10 +31,9 @@ describe('ImportScanner', () => {
         });
 
         runs(() => {
-            expect(onProgress.calls.length).toBe(2);
-            this.containsPath(path.join(__dirname, 'test-project/import1.js'));
-            this.containsPath(path.join(__dirname, 'test-project/nested/import1.js'));
-            expect(onProgress.calls[1].args).toEqual(onComplete.calls[0].args);
+            this.containsPath('./import1');
+            this.containsPath('./nested/import1');
+            expect(onProgress.calls[onProgress.calls.length - 1].args).toEqual(onComplete.calls[0].args);
         });
     });
 
@@ -49,15 +48,15 @@ describe('ImportScanner', () => {
             });
 
             runs(() => {
-                expect(onProgress.calls.length).toBe(1);
                 this.containsPath(importPath);
             });
         });
     };
 
-    expectImportFound('ASecondImport', path.join(__dirname, 'test-project/a-second-import.js'));
-    expectImportFound('aSecondImport', path.join(__dirname, 'test-project/a-second-import.js'));
-    expectImportFound('_aSecondImport', path.join(__dirname, 'test-project/a-second-import.js'));
-    expectImportFound('AThirdImport', path.join(__dirname, 'test-project/AThirdImport.jsx'));
+    expectImportFound('ASecondImport', './a-second-import');
+    expectImportFound('aSecondImport', './a-second-import');
+    expectImportFound('_aSecondImport', './a-second-import');
+    expectImportFound('AThirdImport', './AThirdImport');
+    expectImportFound('aPackage', 'a-package');
 
 });
