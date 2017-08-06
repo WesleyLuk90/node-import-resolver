@@ -53,6 +53,7 @@ import aPackage from 'a-package';
 aPackage
 
 function(){};`);
+            expect(editor.getCursorBufferPosition(new Point(4, 3)));
         });
     });
 });
