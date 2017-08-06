@@ -1,17 +1,17 @@
 {
-    "name": "node-import-resolver",
-    "main": "./lib/NodeImportResolver",
-    "version": "0.0.0",
-    "description": "Imports a require or import style file from the local project or node modules",
-    "keywords": [],
-    "activationCommands": {
-        "atom-workspace": "node-import-resolver:import"
-    },
-    "repository": "https://github.com/WesleyLuk90/node-import-resolver",
-    "license": "MIT",
-    "engines": {
-        "atom": ">=1.0.0 <2.0.0"
-    },
-    "author": "Wesley Luk <wesleyluk@gmail.com>",
-    "dependencies": {}
+  "name": "node-import-resolver",
+  "main": "./lib/NodeImportResolver",
+  "version": "0.1.0",
+  "description": "Imports a require or import style file from the local project or node modules",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "node-import-resolver:import"
+  },
+  "repository": "https://github.com/WesleyLuk90/node-import-resolver",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "author": "Wesley Luk <wesleyluk@gmail.com>",
+  "dependencies": {}
 }
