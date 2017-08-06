@@ -13,5 +13,10 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "author": "Wesley Luk <wesleyluk@gmail.com>",
-  "dependencies": {}
+  "dependencies": {
+    "atom-space-pen-views": "^2.2.0",
+    "bluebird": "^3.5.0",
+    "builtin-modules": "^1.1.1",
+    "js-yaml": "^3.9.1"
+  }
 }

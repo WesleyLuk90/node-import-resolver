@@ -1,11 +1,12 @@
 'use babel';
 
 import ImportStyleHeuristic from '../lib/ImportStyleHeuristic';
+const Configuration = require('../lib/Configuration');
 
 describe('ImportStyleHeuristic', () => {
-    function expectStyle(source, style) {
+    function expectStyle(source, style, config) {
         it(`should return ${style} for ${source}`, () => {
-            const heuristic = ImportStyleHeuristic.fromSource(source);
+            const heuristic = ImportStyleHeuristic.fromSource(source, config || Configuration.createDefault());
             expect(heuristic.getStyle()).toBe(style);
         });
     }
@@ -26,6 +27,7 @@ export function b(){}`, 'import');
     expectStyle(`var b = require('a')
 \texport function b(){}`, 'import');
 
+    expectStyle('', 'require', Configuration.createDefault().setImportStyle('require'));
     expectStyle(`let a = require('a');`, 'require');
     expectStyle(`require('a');`, 'require');
     expectStyle(`var a = require('../../some/strange/pa$$th.abc');`, 'require');

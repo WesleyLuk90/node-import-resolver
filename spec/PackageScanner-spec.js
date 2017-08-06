@@ -10,7 +10,10 @@ describe('PackageScanner', () => {
         waitsForPromise(() => {
             return scanner.getPackageList()
                 .then((packageList) => {
-                    expect(packageList).toEqual(['a-package', 'b-package']);
+                    expect(packageList).toContain('a-package');
+                    expect(packageList).toContain('b-package');
+                    expect(packageList).toContain('path');
+                    expect(packageList).toContain('http');
                 });
         });
     });
